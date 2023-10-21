@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AxiosClient from "../../client/client";
+import { FormLabel } from "react-bootstrap";
 const client = new AxiosClient();
 
 const PostModal = ({ close, authorId }) => {
@@ -119,20 +120,6 @@ const PostModal = ({ close, authorId }) => {
 								})
 							}
 						/>
-
-						{/* <input
-							placeholder="ID author"
-							className="w-[400px] p-1 rounded"
-							name="author"
-							type="text"
-							onChange={e =>
-								setFormData({
-									...formData,
-									author: e.target.value,
-								})
-							}
-							value={authorId}
-						/> */}
 						<input
 							placeholder="Read Time Value"
 							className="w-[400px] p-1 rounded"
@@ -145,18 +132,22 @@ const PostModal = ({ close, authorId }) => {
 								})
 							}
 						/>
-						<input
-							placeholder="Read Time Unit"
-							className="w-[400px] p-1 rounded"
-							name="readTimeUnit"
-							type="text"
-							onChange={e =>
-								setFormData({
-									...formData,
-									unit: e.target.value,
-								})
-							}
-						/>
+						<div>
+							<label className="w-[400px] p-1 rounded">Select unit</label>
+							<select
+								className="w-[400px] p-1 rounded"
+								onChange={e =>
+									setFormData({
+										...formData,
+										unit: e.target.value,
+									})
+								}
+								name="readTimeUnit"
+							>
+								<option value="views">Views</option>
+								<option value="hours">Hours</option>
+							</select>
+						</div>
 						<div className="flex gap-2">
 							<button
 								onClick={() => close(false)}

@@ -25,7 +25,7 @@ const CardPost = ({ posts }) => {
 							<img src={post.cover} alt="" className="bg-gray-50" />
 							<div className="flex items-center gap-x-4 text-xs">
 								<a
-									href="/"
+									href="/home"
 									className="relative mt-2 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
 								>
 									{post.category}
@@ -53,7 +53,7 @@ const CardPost = ({ posts }) => {
 									<p className="m-0">
 										<a
 											className="no-underline font-semibold text-gray-900"
-											href="/"
+											href="/home"
 										>
 											<span>
 												{post.author.nome} {post.author.cognome}
