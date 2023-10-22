@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Link } from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayouts from "../layouts/MainLayouts";
 import LatestPosts from "../components/latestPost/LatestPosts";
 import { PlusCircle } from "react-bootstrap-icons";
@@ -8,6 +9,7 @@ import jwt_decode from "jwt-decode";
 
 const Home = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const navigate = useNavigate();
 
 	const token = localStorage.getItem("loggedInUser");
 
@@ -15,16 +17,29 @@ const Home = () => {
 	const authorId = decodedToken.id;
 
 	const toggleModal = () => setIsModalOpen(!isModalOpen);
+	const handleLogout = () => {
+		// Rimuovi il token dal localStorage
+		navigate("/");
+		localStorage.removeItem("loggedInUser");
+	};
 	return (
 		<>
 			<MainLayouts>
 				<Button
 					onClick={toggleModal}
-					className="d-flex align-items-center blog-navbar-add-button bg-success"
+					className="m-2 d-flex align-items-center blog-navbar-add-button bg-success"
 				>
 					{" "}
 					<PlusCircle className="mx-1" />
 					Crea Post
+				</Button>
+				<Button
+					className="m-2 rounded"
+					variant="warning"
+					size="sm"
+					onClick={handleLogout}
+				>
+					Logout
 				</Button>
 				{isModalOpen && (
 					<PostModal close={setIsModalOpen} authorId={authorId} />

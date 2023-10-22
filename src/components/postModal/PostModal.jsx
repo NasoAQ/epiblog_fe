@@ -68,18 +68,18 @@ const PostModal = ({ close, authorId }) => {
 
 	return (
 		<div className="flex justify-center align-items-center h-screen">
-			<div className=" z-10 flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+			<div className="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
 				<h1 className="font-bold text-4xl mb-4 text-green-700 text-center">
 					Aggiungi post
 				</h1>
-				<div className="w-full h-fit p-4 rounded-lg flex justify-center items-center">
+				<div className="h-screen">
 					<form
 						encType="multipart/form-data"
 						onSubmit={onSubmit}
 						className="flex flex-col justify-center items-center gap-4"
 					>
 						<input
-							className="w-[400px] p-1 rounded"
+							className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 							placeholder="title"
 							name="title"
 							type="text"
@@ -92,7 +92,7 @@ const PostModal = ({ close, authorId }) => {
 						/>
 						<input
 							placeholder="category"
-							className="w-[400px] p-1 rounded"
+							className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 							name="category"
 							type="text"
 							onChange={e =>
@@ -103,14 +103,14 @@ const PostModal = ({ close, authorId }) => {
 							}
 						/>
 						<input
-							className="w-[400px] p-1 rounded"
+							className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 							name="cover"
 							type="file"
 							onChange={onChangeSetFile}
 						/>
 						<input
 							placeholder="content"
-							className="w-[400px] p-1 rounded"
+							className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 							name="content"
 							type="text"
 							onChange={e =>
@@ -122,7 +122,7 @@ const PostModal = ({ close, authorId }) => {
 						/>
 						<input
 							placeholder="Read Time Value"
-							className="w-[400px] p-1 rounded"
+							className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 							name="readTimeValue"
 							type="number"
 							onChange={e =>
@@ -133,9 +133,9 @@ const PostModal = ({ close, authorId }) => {
 							}
 						/>
 						<div>
-							<label className="w-[400px] p-1 rounded">Select unit</label>
+							<label className=" p-1 rounded">Select unit</label>
 							<select
-								className="w-[400px] p-1 rounded"
+								className="rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
 								onChange={e =>
 									setFormData({
 										...formData,

@@ -10,7 +10,7 @@ const LatestPosts = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [posts, setPosts] = useState([]);
 	const [searchText, setSearchText] = useState("");
-	const [filteredPosts, setFilteredPosts] = useState(posts);
+	const [filteredPosts, setFilteredPosts] = useState([]);
 
 	//console.log(posts);
 
@@ -26,11 +26,11 @@ const LatestPosts = () => {
 	};
 
 	const handleSearchChange = e => {
-		const text = e.target.value;
-		setSearchText(text);
+		const searchText = e.target.value;
+		setSearchText(searchText);
 
 		const filteredPosts = posts.filter(post =>
-			post.title.toLowerCase().includes(text.toLowerCase())
+			post.title.toLowerCase().includes(searchText.toLowerCase())
 		);
 		setFilteredPosts(filteredPosts);
 	};
@@ -64,7 +64,7 @@ const LatestPosts = () => {
 			</div>
 			<Container className="d-flex mt-3">
 				<div className="mx-auto mt-3 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-green-600 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-					<CardPost posts={posts} />
+					<CardPost posts={searchText.length < 3 ? posts : filteredPosts} />
 				</div>
 			</Container>
 			<div className="mt-3">
