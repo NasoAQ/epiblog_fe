@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "../src/pages/Home";
+import Errorpage from "./pages/Error";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProtectedRoutes from "./middlewear/ProtectedRoutes";
@@ -21,6 +22,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Login />} />
 					<Route path="/registration" element={<Registration />} />
+					<Route path="*" element={<Errorpage />} />
 
 					<Route element={<ProtectedRoutes />}>
 						<Route path="/home" element={<Home />} />

@@ -28,6 +28,7 @@ function Comment({ postId, onCommentAdded }) {
 			if (response.status === 201) {
 				console.log("Commento creato con successo.");
 			}
+			onCommentAdded();
 		} catch (error) {
 			console.error("Errore durante la creazione del commento:", error);
 		}

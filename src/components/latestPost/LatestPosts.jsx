@@ -9,8 +9,6 @@ const client = new AxiosClient();
 const LatestPosts = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [posts, setPosts] = useState([]);
-	const [searchText, setSearchText] = useState("");
-	const [filteredPosts, setFilteredPosts] = useState([]);
 
 	//console.log(posts);
 
@@ -23,16 +21,6 @@ const LatestPosts = () => {
 		} catch (e) {
 			console.log(e);
 		}
-	};
-
-	const handleSearchChange = e => {
-		const searchText = e.target.value;
-		setSearchText(searchText);
-
-		const filteredPosts = posts.filter(post =>
-			post.title.toLowerCase().includes(searchText.toLowerCase())
-		);
-		setFilteredPosts(filteredPosts);
 	};
 
 	const handlePagination = value => {
@@ -49,22 +37,13 @@ const LatestPosts = () => {
 				<h2 className="text-3xl font-bold tracking-tight text-green-900 sm:text-4xl">
 					Latest posts
 				</h2>
-				<Col className="col-6 ">
-					<input
-						type="text"
-						placeholder="Search post..."
-						//value={searchText}
-						onChange={handleSearchChange}
-						className="form-control my-3 text-center"
-					/>
-				</Col>
 				<p className="mt-2 text-lg leading-8 text-gray-600">
 					Learn how to grow your business with our expert advice.
 				</p>
 			</div>
 			<Container className="d-flex mt-3">
 				<div className="mx-auto mt-3 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-green-600 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-					<CardPost posts={searchText.length < 3 ? posts : filteredPosts} />
+					<CardPost posts={posts} />
 				</div>
 			</Container>
 			<div className="mt-3">

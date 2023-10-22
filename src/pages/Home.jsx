@@ -9,12 +9,15 @@ import jwt_decode from "jwt-decode";
 
 const Home = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [userName, setUserName] = useState("");
+
 	const navigate = useNavigate();
 
 	const token = localStorage.getItem("loggedInUser");
 
 	const decodedToken = jwt_decode(token);
 	const authorId = decodedToken.id;
+	const name = decodedToken.nome;
 
 	const toggleModal = () => setIsModalOpen(!isModalOpen);
 	const handleLogout = () => {
@@ -22,6 +25,11 @@ const Home = () => {
 		navigate("/");
 		localStorage.removeItem("loggedInUser");
 	};
+
+	useEffect(() => {
+		setUserName(name);
+	}, []);
+
 	return (
 		<>
 			<MainLayouts>
@@ -44,6 +52,7 @@ const Home = () => {
 				{isModalOpen && (
 					<PostModal close={setIsModalOpen} authorId={authorId} />
 				)}
+				<div>Benvenuto, {userName}</div>
 				<LatestPosts />
 			</MainLayouts>
 		</>

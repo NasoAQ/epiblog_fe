@@ -35,8 +35,8 @@ const NavBar = ({ posts, setFilteredPosts }) => {
 					<input
 						type="text"
 						placeholder="Search post..."
-						value={searchText}
-						onChange={handleSearchChange}
+						//value={searchText}
+						//onChange={handleSearchChange}
 						className="form-control my-3 text-center"
 					/>
 				</Col>
