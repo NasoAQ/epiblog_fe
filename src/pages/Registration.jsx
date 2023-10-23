@@ -68,6 +68,8 @@ function Registration() {
 					navigate("/home");
 				}
 				setLoginData(data);
+			} else {
+				alert("Errore durante la registrazione. Si prega di riprovare.");
 			}
 		} catch (error) {
 			console.error("Errore durante la creazione dell'autore:", error);

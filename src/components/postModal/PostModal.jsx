@@ -60,9 +60,13 @@ const PostModal = ({ close, authorId }) => {
 				return response.json();
 			} catch (error) {
 				console.log(error);
+				alert(
+					"Si è verificato un errore durante l'invio del modulo. Si prega di riprovare più tardi."
+				);
 			}
 		} else {
 			console.error("Seleziona un file");
+			alert("Devi selezionare un file prima di inviare il modulo.");
 		}
 	};
 
@@ -131,6 +135,7 @@ const PostModal = ({ close, authorId }) => {
 									value: e.target.value,
 								})
 							}
+							min="1"
 						/>
 						<div>
 							<label className=" p-1 rounded">Select unit</label>

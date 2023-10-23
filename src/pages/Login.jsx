@@ -41,10 +41,13 @@ function Login() {
 				localStorage.setItem("loggedInUser", JSON.stringify(data.token));
 
 				navigate("/home");
+			} else {
+				alert("Email o password errate. Si prega di riprovare.");
 			}
 			setLogin(data);
 		} catch (error) {
 			console.log(error);
+			alert("Email o password errate. Si prega di riprovare.");
 		}
 	};
 
